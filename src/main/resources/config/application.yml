@@ -1,0 +1,71 @@
+runtime:
+   environment: local
+
+spring: 
+   profiles:
+      active: dev
+
+   application:
+      name: SOPL
+
+   datasource:
+#      url: jdbc:postgresql://localhost:5432/postgres
+#      username: sopl
+#      password: sopl
+
+      sopl:
+         url: jdbc:postgresql://localhost:5432/postgres
+         username: sopl
+         password: sopl
+
+         hikari:
+            connectionTimeout: 30000
+            idleTimeout: 600000
+            maxLifetime: 1800000
+
+      cargowise:
+         url: jdbc:sqlserver://localhost:1433;databaseName=master;encrypt=true;trustServerCertificate=true;
+         username: sa
+         password: yourStrong(!)Password
+
+         hikari:
+            connectionTimeout: 30000
+            idleTimeout: 600000
+            maxLifetime: 1800000
+
+   mvc:
+      pathmatch:
+         matching-strategy: "ANT_PATH_MATCHER"
+
+#spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+
+security:
+   cors:
+      allowed-origins: 
+         "*"
+      allowed-methods:
+         GET,
+         POST,
+         OPTIONS
+   ignore-all-security-check: true
+   ignore-all-security-check-ips: 
+      127.0.0.1
+   ignore-security-check-uri-list:                                                                                  ### 上正式環境(/user_profile/03、/druid/**)千萬記得要移掉
+      /v2/**,
+      /webjars/**,
+      /swagger-ui/**,
+      /swagger-resources/**,
+
+server:
+   type: ap
+   servlet: 
+      context-path: /${spring.application.name}
+      session:
+         timeout: 660                                                                                               # 單位(秒)，660秒->11分
+         tracking-modes: COOKIE
+         cookie:
+            http-only: true
+            secure : false
+   port: 8080
+   compression:
+      enabled: true
