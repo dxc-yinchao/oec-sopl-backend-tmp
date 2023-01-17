@@ -44,7 +44,7 @@ public class SO0100ServiceImpl extends AbstractService implements SO0100Service 
             .append("  cw_update_dept, ")
             .append("  cw_update_by, ")
             .append("  cw_update_time ")
-            .append("from so_shipment ")
+            .append("from sopl.so_shipment ")
             .append("where ")
             .append("  shipment_no = ? ")
             .toString();
