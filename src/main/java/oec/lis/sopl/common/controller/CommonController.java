@@ -18,6 +18,8 @@ import oec.lis.sopl.common.model.MasterDataResponseBean;
 import oec.lis.sopl.common.model.RestListResponse;
 import oec.lis.sopl.common.model.RestOneResponse;
 import oec.lis.sopl.common.model.RestRequest;
+import oec.lis.sopl.model.domain.UserInfo;
+import oec.lis.sopl.service.so.KeyCloakServie;
 import oec.lis.sopl.service.so.MasterCodeTableService;
 
 @RestController
@@ -27,6 +29,9 @@ public class CommonController {
 
     @Autowired
     private MasterCodeTableService service;
+    
+    @Autowired
+    private KeyCloakServie keyCloakServie;
 
     @PostMapping("/getMasterCodeTable")
     @ApiOperation(value = "Get HBL No and filtered by user profile attributes (company code, role, sales id).")
@@ -42,4 +47,26 @@ public class CommonController {
         RestOneResponse<MasterDataResponseBean> result = new RestOneResponse<MasterDataResponseBean>();
         return result;        
     }
+    
+    
+    @GetMapping("/testToken")
+    @ApiOperation(value = "Get token from keycloak by username and passwd")
+	public String keycloak(String username,String password) {
+		return keyCloakServie.getUserToken(username, password);
+	}
+    
+    @GetMapping("/testUserInfo")
+    @ApiOperation(value = "Get userInfo from keycloak by username and passwd")
+	public UserInfo userIfon(String username,String password) {
+
+		return keyCloakServie.getUserInfo(username, password);
+	}
+    
+    @GetMapping("/testUserInfobyToken")
+    @ApiOperation(value = "Get userInfo from keycloak by token")
+	public UserInfo userIfon(String token) {
+
+		return keyCloakServie.getUserInfo(token);
+	}
+    
 }
