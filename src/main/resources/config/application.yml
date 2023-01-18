@@ -50,18 +50,18 @@ security:
    ignore-all-security-check: true
    ignore-all-security-check-ips: 
       127.0.0.1
-   ignore-security-check-uri-list:                                                                                  ### 上正式環境(/user_profile/03、/druid/**)千萬記得要移掉
+   ignore-security-check-uri-list:
       /v2/**,
       /webjars/**,
       /swagger-ui/**,
-      /swagger-resources/**,
+      /swagger-resources/**
 
 server:
    type: ap
    servlet: 
       context-path: /${spring.application.name}
       session:
-         timeout: 660                                                                                               # 單位(秒)，660秒->11分
+         timeout: 660
          tracking-modes: COOKIE
          cookie:
             http-only: true
