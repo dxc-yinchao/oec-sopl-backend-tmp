@@ -69,3 +69,15 @@ server:
    port: 8080
    compression:
       enabled: true
+
+keycloak:
+  # 表示是一個public的client
+  public-client: true
+  # keycloak的地址
+  auth-server-url: http://localhost:8180/auth
+  # keycloak中的realm
+  realm: SpringBootKeycloak
+  # client ID
+  resource: login-app
+  bearer-only: true
+  use-resource-role-mappings: true
