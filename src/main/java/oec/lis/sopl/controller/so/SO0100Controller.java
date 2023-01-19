@@ -31,7 +31,7 @@ public class SO0100Controller {
 
     @PostMapping("/list")
     @ApiOperation(value = "Query SO Instruction data by varies condition.")
-    public RestOneResponse<Shipment> doQuerySoList(@Valid @RequestBody RestRequest<SO010001RequestBean> model) {
+    public RestOneResponse<SO010001ResponseBean> doQuerySoList(@Valid @RequestBody RestRequest<SO010001RequestBean> model) {
         return service.queryShipment(model);
     }
 }
