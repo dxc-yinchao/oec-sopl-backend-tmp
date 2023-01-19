@@ -15,9 +15,10 @@ spring:
 
       sopl:
          url: jdbc:postgresql://localhost:5432/postgres
+         jdbc-url: jdbc:postgresql://localhost:5432/postgres
          username: sopl
          password: sopl
-
+         driver-class-name: org.postgresql.Driver
          hikari:
             connectionTimeout: 30000
             idleTimeout: 600000
@@ -25,9 +26,10 @@ spring:
 
       cargowise:
          url: jdbc:sqlserver://localhost:1433;databaseName=OdysseyOECAST;encrypt=true;trustServerCertificate=true;
+         jdbc-url: jdbc:sqlserver://localhost:1433;databaseName=OdysseyOECAST;encrypt=true;trustServerCertificate=true;
          username: sa
          password: yourStrong(!)Password
-
+         driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
          hikari:
             connectionTimeout: 30000
             idleTimeout: 600000
@@ -36,7 +38,13 @@ spring:
    mvc:
       pathmatch:
          matching-strategy: "ANT_PATH_MATCHER"
-
+   jpa:
+      properties:
+         hibernate:
+            pg-dialect: org.hibernate.dialect.PostgreSQLDialect
+            temp:
+               use_jdbc_metadata_defaults: 'false'
+            mssql-dialect: org.hibernate.dialect.SQLServerDialect
 #spring.mvc.pathmatch.matching-strategy=ant_path_matcher
 
 security:
