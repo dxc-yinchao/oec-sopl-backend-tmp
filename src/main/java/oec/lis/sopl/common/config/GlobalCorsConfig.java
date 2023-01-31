@@ -18,7 +18,7 @@ public class GlobalCorsConfig {
         config.addAllowedOrigin("/*");
         config.setAllowCredentials(true);
         config.addAllowedMethod("OPTIONS");
-        config.addAllowedMethod("HEAD");s
+        config.addAllowedMethod("HEAD");
         config.addAllowedMethod("GET");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("POST");
