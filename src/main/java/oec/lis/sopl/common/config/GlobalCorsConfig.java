@@ -15,9 +15,10 @@ public class GlobalCorsConfig {
         config.addAllowedOrigin("http://127.0.0.1:8080");
         config.addAllowedOrigin("http://127.0.0.1:3000");
 		config.addAllowedOrigin("http://localhost:3000");
+        config.addAllowedOrigin("/*");
         config.setAllowCredentials(true);
         config.addAllowedMethod("OPTIONS");
-        config.addAllowedMethod("HEAD");
+        config.addAllowedMethod("HEAD");s
         config.addAllowedMethod("GET");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("POST");
