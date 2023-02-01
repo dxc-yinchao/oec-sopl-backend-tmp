@@ -1,7 +1,5 @@
 package oec.lis.sopl.model.domain;
 
-import java.sql.Timestamp;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

@@ -68,7 +68,4 @@ public class KeyCloakServiceImpl implements KeyCloakServie {
 
         return resultMap.get("access_token");
 	}
-
-
-   
 }
