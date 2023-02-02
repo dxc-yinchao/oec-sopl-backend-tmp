@@ -18,18 +18,18 @@ public class SecurityConfig{
 
 	@Bean
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-//		httpSecurity.cors().and().csrf().disable()
-//        .exceptionHandling().and()
-//        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-//        .authorizeRequests().antMatchers("/api/auth/**").permitAll()
-//        .antMatchers("/api/test/**").permitAll()
-//        .anyRequest().authenticated();
-    
-		httpSecurity
-    	.authorizeRequests()
-    	.antMatchers("/")
-    	.permitAll();	
 		
+		httpSecurity.cors().and()
+        .exceptionHandling().and()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+        .authorizeRequests()
+        .antMatchers("/").permitAll();		 
+    
+//		httpSecurity
+//    	.authorizeRequests()
+//    	.antMatchers("/")
+//    	.permitAll();	
+//		
         return httpSecurity.build();
     }
 }
