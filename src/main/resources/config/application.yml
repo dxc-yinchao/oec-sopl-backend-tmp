@@ -16,8 +16,8 @@ spring:
       sopl:
          url: jdbc:postgresql://localhost:5432/postgres
          jdbc-url: jdbc:postgresql://localhost:5432/postgres
-         username: sopl
-         password: sopl
+         username: postgres
+         password: 1234567890
          driver-class-name: org.postgresql.Driver
          hikari:
             connectionTimeout: 30000

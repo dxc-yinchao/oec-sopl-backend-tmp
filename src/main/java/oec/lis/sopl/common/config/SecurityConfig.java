@@ -1,5 +1,6 @@
 package oec.lis.sopl.common.config;
 
+import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,8 +29,8 @@ public class SecurityConfig{
 		httpSecurity
     	.authorizeRequests()
     	.antMatchers("/")
-    	.permitAll();	
-		
+    	.permitAll().and()
+				.csrf().disable();
         return httpSecurity.build();
     }
 }
