@@ -9,45 +9,48 @@ import lombok.Data;
 public class SO010001RequestBean implements Serializable {
 
     @ApiModelProperty(value = "hbl no", allowEmptyValue = true)
-    private String hblNo;
+    private String[] hblNo;
 
     @ApiModelProperty(value = "mbl no", allowEmptyValue = true)
-    private String mblNo;
+    private String[] mblNo;
 
     @ApiModelProperty(value = "shipment no", allowEmptyValue = true)
-    private String shipmentNo;
+    private String[] shipmentNo;
 
     @ApiModelProperty(value = "consol no", allowEmptyValue = true)
-    private String consolNo;
+    private String[] consolNo;
 
-    @ApiModelProperty(value = "status (Booking Received | Booking Processing | Wait for Confirmation | Consignee Confirmed | Rejected | Canceled)", allowEmptyValue = true)
-    private String status;
+    @ApiModelProperty(value = "status ( [N]ew | [D]raft | [P]ending | [A]pproved | [R]ejected )", allowEmptyValue = true)
+    private String[] status;
 
     @ApiModelProperty(value = "origin", allowEmptyValue = true)
-    private String origin;
+    private String[] origin;
 
     @ApiModelProperty(value = "destination", allowEmptyValue = true)
-    private String destination;
+    private String[] destination;
 
     @ApiModelProperty(value = "shipper organization ID", allowEmptyValue = true)
-    private String shipperOrgId;
+    private String[] shipperOrgId;
 
     @ApiModelProperty(value = "consignee organization ID", allowEmptyValue = true)
-    private String consigneeOrgId;
+    private String[] consigneeOrgId;
 
     @ApiModelProperty(value = "agent organization ID", allowEmptyValue = true)
-    private String agentOrgId;
+    private String[] agentOrgId;
 
     @ApiModelProperty(value = "carieer organization ID", allowEmptyValue = true)
-    private String carieerOrgId;
+    private String[] carieerOrgId;
 
     @ApiModelProperty(value = "sales staff ID", allowEmptyValue = true)
-    private String salesId;
+    private String[] salesId;
 
-    @ApiModelProperty(value = "ETD (Estimated Time Depart", allowEmptyValue = true)
-    private String etd;
+    @ApiModelProperty(value = "Begin date for querying ETD (=Estimated Time of Departure)", allowEmptyValue = true)
+    private String beginDate;
 
-    @ApiModelProperty(value = "cargo type (Local | Routine | Mutual | Coload | Volume Non-calculated)", allowEmptyValue = true)
-    private String cargoType;
+    @ApiModelProperty(value = "End date for querying ETD (=Estimated Time of Departure)", allowEmptyValue = true)
+    private String endDate;
+
+    @ApiModelProperty(value = "cargo type ( [L]ocal | [R]outine | [M]utual | [C]oload | [S] Volume Non-calculated )", allowEmptyValue = true)
+    private String[] cargoType;
     
 }

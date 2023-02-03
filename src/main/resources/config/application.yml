@@ -4,7 +4,8 @@ runtime:
 spring: 
    profiles:
       active: dev
-
+  
+  
    application:
       name: SOPL
 
@@ -47,22 +48,22 @@ spring:
             mssql-dialect: org.hibernate.dialect.SQLServerDialect
 #spring.mvc.pathmatch.matching-strategy=ant_path_matcher
 
-security:
-   cors:
-      allowed-origins: 
-         "*"
-      allowed-methods:
-         GET,
-         POST,
-         OPTIONS
-   ignore-all-security-check: true
-   ignore-all-security-check-ips: 
-      127.0.0.1
-   ignore-security-check-uri-list:
-      /v2/**,
-      /webjars/**,
-      /swagger-ui/**,
-      /swagger-resources/**
+   security:
+      cors:
+         allowed-origins: 
+            "*"
+         allowed-methods:
+            GET,
+            POST,
+            OPTIONS
+      ignore-all-security-check: true
+      ignore-all-security-check-ips: 
+            127.0.0.1
+      ignore-security-check-uri-list:
+            /v2/**,
+            /webjars/**,
+            /swagger-ui/**,
+            /swagger-resources/**
 
 server:
    type: ap
@@ -74,7 +75,7 @@ server:
          cookie:
             http-only: true
             secure : false
-   port: 8080
+   port: 8081
    compression:
       enabled: true
 
@@ -89,3 +90,14 @@ keycloak:
   resource: login-app
   bearer-only: true
   use-resource-role-mappings: true
+
+logging:
+  file:
+    name: logs/dev.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level: 
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO
+    org.hibernate: INFO
