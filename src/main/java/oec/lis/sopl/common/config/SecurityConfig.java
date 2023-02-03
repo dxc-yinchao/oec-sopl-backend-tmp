@@ -1,5 +1,6 @@
 package oec.lis.sopl.common.config;
 
+import io.swagger.models.HttpMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,18 +19,18 @@ public class SecurityConfig{
 
 	@Bean
     SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-		
-		httpSecurity.cors().and()
-        .exceptionHandling().and()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        .authorizeRequests()
-        .antMatchers("/").permitAll();		 
+//		httpSecurity.cors().and().csrf().disable()
+//        .exceptionHandling().and()
+//        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+//        .authorizeRequests().antMatchers("/api/auth/**").permitAll()
+//        .antMatchers("/api/test/**").permitAll()
+//        .anyRequest().authenticated();
     
-//		httpSecurity
-//    	.authorizeRequests()
-//    	.antMatchers("/")
-//    	.permitAll();	
-//		
+		httpSecurity
+    	.authorizeRequests()
+    	.antMatchers("/")
+    	.permitAll().and()
+				.csrf().disable();
         return httpSecurity.build();
     }
 }
