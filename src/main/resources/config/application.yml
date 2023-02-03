@@ -75,7 +75,7 @@ server:
          cookie:
             http-only: true
             secure : false
-   port: 8081
+   port: 8080
    compression:
       enabled: true
 
