@@ -90,3 +90,14 @@ keycloak:
   resource: login-app
   bearer-only: true
   use-resource-role-mappings: true
+
+logging:
+  file:
+    name: logs/dev.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level: 
+    org.springframework.web: INFO
+    guru.springframework.controllers: INFO
+    org.hibernate: INFO
