@@ -1,6 +1,9 @@
 package oec.lis.sopl.controller.so;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.apachecommons.CommonsLog;
+import oec.lis.sopl.common.model.MasterCodeTableResponseBean;
+import oec.lis.sopl.common.model.RestListResponse;
 import oec.lis.sopl.common.model.RestOneResponse;
 import oec.lis.sopl.common.model.RestRequest;
 import oec.lis.sopl.model.so.SO010001RequestBean;
@@ -87,5 +92,41 @@ public class SO0101Controller {
     @ApiOperation(value = "Save detail data.")
     public RestOneResponse<SO010101ResponseBean> save(@Valid @RequestBody RestRequest<SO010101RequestBean> model) {
         return null;
+    }
+    
+    @GetMapping("/getUnitOptions")
+    @ApiOperation(value = "Query Options for Unit")
+    public RestListResponse<MasterCodeTableResponseBean> getUnitOptions() {
+    	RestListResponse<MasterCodeTableResponseBean> result = new RestListResponse<MasterCodeTableResponseBean>();
+    	List<MasterCodeTableResponseBean> dto = new ArrayList<MasterCodeTableResponseBean>();
+        result.setBody(dto);
+    	return result;    
+    }
+    
+    @GetMapping("/getCurrencyOptions")
+    @ApiOperation(value = "Query Options for Currency")
+    public RestListResponse<MasterCodeTableResponseBean> getCurrencyOptions() {
+    	RestListResponse<MasterCodeTableResponseBean> result = new RestListResponse<MasterCodeTableResponseBean>();
+    	List<MasterCodeTableResponseBean> dto = new ArrayList<MasterCodeTableResponseBean>();
+        result.setBody(dto);
+    	return result;    
+    }
+    
+    @GetMapping("/getTypeOptionsCNTR")
+    @ApiOperation(value = "Query Options for Type(Unit = CNTR)")
+    public RestListResponse<MasterCodeTableResponseBean> getTypeOptionsCNTR() {
+    	RestListResponse<MasterCodeTableResponseBean> result = new RestListResponse<MasterCodeTableResponseBean>();
+    	List<MasterCodeTableResponseBean> dto = new ArrayList<MasterCodeTableResponseBean>();
+        result.setBody(dto);
+    	return result;    
+    }
+    
+    @GetMapping("/getTypeOptionsKG")
+    @ApiOperation(value = "Query Options for Type(Unit = KG)")
+    public RestListResponse<MasterCodeTableResponseBean> getTypeOptionsKG() {
+    	RestListResponse<MasterCodeTableResponseBean> result = new RestListResponse<MasterCodeTableResponseBean>();
+    	List<MasterCodeTableResponseBean> dto = new ArrayList<MasterCodeTableResponseBean>();
+        result.setBody(dto);
+    	return result;    
     }
 }
